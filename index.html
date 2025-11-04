@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Viktoria’s candles — ручные восковые свечи</title>
+  <meta name="description" content="Нежные восковые свечи ручной работы — Viktoria’s candles. Каталог и контакты." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="antialiased text-gray-800 bg-pink-50 min-h-screen">
+
+<!-- HEADER -->
+<header class="fixed w-full bg-white/70 backdrop-blur-md shadow-sm z-30">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-2">
+      <img src="images/logo.png" alt="Viktoria’s candles — логотип" class="w-14 h-auto md:w-16 drop-shadow-md" />
+      <div>
+        <div class="text-lg font-semibold text-rose-700">Viktoria’s candles</div>
+        <div class="text-xs text-gray-500">Ручная работа</div>
+      </div>
+    </a>
+
+    <nav class="hidden md:flex gap-6 items-center text-sm">
+      <a href="#catalog" class="hover:text-rose-600">Каталог</a>
+      <a href="#about" class="hover:text-rose-600">О нас</a>
+      <a href="#contacts" class="hover:text-rose-600">Контакты</a>
+      <a href="https://t.me/viktoriascandles" target="_blank"
+         class="px-4 py-2 rounded-full bg-rose-500 text-white shadow hover:bg-rose-400 transition flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4" viewBox="0 0 24 24">
+          <path d="M9.999 15.17l-.366 3.86c.524 0 .75-.225 1.022-.494l2.46-2.33 5.1 3.744c.935.514 1.598.244 1.832-.866l3.317-15.51c.302-1.405-.48-1.956-1.398-1.616L1.162 9.577c-1.36.53-1.34 1.289-.232 1.634l4.905 1.532 11.388-7.18c.54-.335 1.03-.15.625.214L9.999 15.17z"/>
+        </svg>
+        Telegram
+      </a>
+    </nav>
+
+    <button id="mobileToggle" class="md:hidden p-2 rounded-md bg-white/80 shadow">Меню</button>
+  </div>
+
+  <div id="mobileMenu" class="hidden bg-white/90 shadow-md text-center py-4 space-y-3">
+    <a href="#catalog" class="block text-gray-700">Каталог</a>
+    <a href="#about" class="block text-gray-700">О нас</a>
+    <a href="#contacts" class="block text-gray-700">Контакты</a>
+    <a href="https://t.me/viktoriascandles" target="_blank"
+       class="inline-block px-4 py-2 mt-2 rounded-full bg-rose-500 text-white shadow hover:bg-rose-400 transition">Telegram</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero" class="pt-28 pb-12 hero-fade">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div class="space-y-6">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-rose-700">Тёплый свет, созданный с любовью</h1>
+      <p class="text-gray-600 max-w-xl">Viktoria’s candles — это нежные свечи ручной работы из натурального воска. Для уюта, для подарков, для особых мгновений.</p>
+      <div class="flex gap-3">
+        <a href="#catalog" class="px-5 py-3 rounded-md bg-rose-500 text-white shadow hover:bg-rose-400 transition">Смотреть каталог</a>
+        <a href="#contacts" class="px-5 py-3 rounded-md border border-rose-300 text-rose-600 hover:bg-rose-50 transition">Связаться</a>
+      </div>
+    </div>
+    <img src="images/hero.png" alt="Свечи Viktoria’s candles" class="rounded-2xl shadow-lg w-full aspect-[3/2] object-cover" />
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section id="catalog" class="py-12 bg-white/70">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6 text-rose-700">Каталог свечей</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="catalog-grid"></div>
+
+    <div class="text-center mt-8">
+      <button id="loadMore" class="px-5 py-3 rounded-md bg-rose-400 text-white shadow hover:bg-rose-300 transition">Загрузить ещё</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-12">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-2xl font-bold text-rose-700 mb-3">О нас</h2>
+    <p class="text-gray-600">Каждая свеча — это история тепла, спокойствия и нежности. Мы создаём их вручную, используя только натуральные ингредиенты и вдохновение.</p>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts" class="py-12 bg-white/60">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-2xl font-bold text-rose-700 mb-3">Контакты</h2>
+    <p class="text-gray-600 mb-6">Свяжитесь с нами для заказа или уточнения деталей.</p>
+    <a href="https://t.me/viktoriascandles" target="_blank"
+       class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-rose-500 text-white shadow hover:bg-rose-400 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
+        <path d="M9.999 15.17l-.366 3.86c.524 0 .75-.225 1.022-.494l2.46-2.33 5.1 3.744c.935.514 1.598.244 1.832-.866l3.317-15.51c.302-1.405-.48-1.956-1.398-1.616L1.162 9.577c-1.36.53-1.34 1.289-.232 1.634л4.905 1.532 11.388-7.18c.54-.335 1.03-.15.625.214L9.999 15.17z"/>
+      </svg>
+      Написать в Telegram
+    </a>
+  </div>
+</section>
+
+<footer class="py-8 text-center text-sm text-gray-500">
+  © <span id="year"></span> Viktoria’s candles
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
