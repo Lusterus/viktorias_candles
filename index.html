@@ -3,105 +3,430 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Viktoria’s candles — ручные восковые свечи</title>
-  <meta name="description" content="Нежные восковые свечи ручной работы — Viktoria’s candles. Каталог и контакты." />
+
+  <title>Viktoria’s candles — восковые свечи ручной работы в подарочной упаковке</title>
+
+  <meta name="description" content="Ручные восковые свечи Viktoria’s candles: натуральный воск, нежные ароматы, подарочные наборы, свадебные и интерьерные свечи. Личная доставка и самовывоз по договорённости. Каталог и заказ через Telegram." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Viktoria’s candles — ручные восковые свечи" />
+  <meta property="og:description" content="Натуральные восковые свечи ручной работы, подарочные наборы и личная доставка по договорённости." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/hero.png" />
+  <meta property="og:locale" content="ru_RU" />
+
+  <link rel="canonical" href="https://viktoriascandles.example" />
+
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- LocalBusiness + AggregateRating -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Viktoria’s candles",
+    "image": "https://viktoriascandles.example/images/hero.png",
+    "description": "Ручные восковые свечи из натурального воска, личная доставка и самовывоз по договорённости.",
+    "url": "https://viktoriascandles.example",
+    "sameAs": ["https://t.me/viktoriascandles"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "посёлок [Ваш поселок]",
+      "addressCountry": "RU"
+    },
+    "areaServed": "посёлок [Ваш поселок] и ближайшие районы",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "12"
+    },
+    "makesOffer": {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Product",
+        "name": "Восковые свечи ручной работы"
+      },
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+
+  <!-- FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Из чего сделаны свечи?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Использую натуральный воск и мягкие ароматические композиции."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Можно ли свой цвет или форму?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да, по возможности подбираю под ваши референсы. Можно прислать пример цвета или фото."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "За сколько дней лучше заказывать?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Идеально — за 5–7 дней до нужной даты, для крупных и свадебных заказов — заранее."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Свечи коптят или текут?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "При правильной установке и без сквозняков горят ровно. Вкладываю рекомендации по использованию в заказ."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Можно срочно, к определённой дате?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Если есть готовые свечи, можем собрать срочный заказ. Напишите дату — честно скажу, успею или предложу альтернативы."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Как получить заказ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Личная доставка или самовывоз по договорённости в вашем районе. Детали обсуждаем в Telegram."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="antialiased text-gray-800 bg-pink-50 min-h-screen">
 
 <!-- HEADER -->
-<header class="fixed w-full bg-white/70 backdrop-blur-md shadow-sm z-30">
+<header class="fixed inset-x-0 top-0 z-30 bg-white/70 backdrop-blur-md shadow-sm">
   <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
     <a href="#hero" class="flex items-center gap-2">
-      <img src="images/logo.png" alt="Viktoria’s candles — логотип" class="w-14 h-auto md:w-16 drop-shadow-md" />
+      <img src="images/logo.png" alt="Viktoria’s candles — логотип" class="w-14 h-auto md:w-16 drop-shadow-md" loading="lazy" />
       <div>
         <div class="text-lg font-semibold text-rose-700">Viktoria’s candles</div>
-        <div class="text-xs text-gray-500">Ручная работа</div>
+        <div class="text-xs text-gray-500">Восковые свечи ручной работы</div>
       </div>
     </a>
 
-    <nav class="hidden md:flex gap-6 items-center text-sm">
+    <nav class="hidden md:flex gap-6 items-center text-sm" aria-label="Главное меню">
       <a href="#catalog" class="hover:text-rose-600">Каталог</a>
       <a href="#about" class="hover:text-rose-600">О нас</a>
+      <a href="#advantages" class="hover:text-rose-600">Почему мы</a>
+      <a href="#howto" class="hover:text-rose-600">Как заказать</a>
+      <a href="#reviews" class="hover:text-rose-600">Отзывы</a>
+      <a href="#faq" class="hover:text-rose-600">FAQ</a>
+      <a href="#delivery" class="hover:text-rose-600">Доставка</a>
       <a href="#contacts" class="hover:text-rose-600">Контакты</a>
-      <a href="https://t.me/viktoriascandles" target="_blank"
+      <a href="https://t.me/viktoriascandles?text=Здравствуйте!%20Хочу%20заказать%20свечи%20Viktoria%E2%80%99s%20candles.%20Подскажите,%20пожалуйста,%20по%20наличию%20и%20доставке."
+         target="_blank" rel="noopener"
          class="px-4 py-2 rounded-full bg-rose-500 text-white shadow hover:bg-rose-400 transition flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4" viewBox="0 0 24 24">
-          <path d="M9.999 15.17l-.366 3.86c.524 0 .75-.225 1.022-.494l2.46-2.33 5.1 3.744c.935.514 1.598.244 1.832-.866l3.317-15.51c.302-1.405-.48-1.956-1.398-1.616L1.162 9.577c-1.36.53-1.34 1.289-.232 1.634l4.905 1.532 11.388-7.18c.54-.335 1.03-.15.625.214L9.999 15.17z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" aria-hidden="true">
+          <path fill="currentColor" d="M22.9 3.2a1.5 1.5 0 0 0-1.7-1.1L2.7 8.2A1.2 1.2 0 0 0 2.6 10l4.8 1.6 2 6.2a1.2 1.2 0 0 0 2 .4l3-3.2 4.8 3.5a1.2 1.2 0 0 0 1.9-.7l2-13.4a1.5 1.5 0 0 0-.2-.8z"/>
         </svg>
         Telegram
       </a>
     </nav>
 
-    <button id="mobileToggle" class="md:hidden p-2 rounded-md bg-white/80 shadow">Меню</button>
+    <button id="mobileToggle"
+            class="md:hidden p-2 rounded-md bg-white/80 shadow flex items-center gap-2"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="mobileMenu">
+      <span class="text-sm">Меню</span>
+    </button>
   </div>
 
-  <div id="mobileMenu" class="hidden bg-white/90 shadow-md text-center py-4 space-y-3">
+  <div id="mobileMenu"
+       class="hidden bg-white/95 shadow-md text-center py-4 space-y-3 md:hidden"
+       aria-label="Мобильное меню">
     <a href="#catalog" class="block text-gray-700">Каталог</a>
     <a href="#about" class="block text-gray-700">О нас</a>
+    <a href="#advantages" class="block text-gray-700">Почему мы</a>
+    <a href="#howto" class="block text-gray-700">Как заказать</a>
+    <a href="#reviews" class="block text-gray-700">Отзывы</a>
+    <a href="#faq" class="block text-gray-700">FAQ</a>
+    <a href="#delivery" class="block text-gray-700">Доставка</a>
     <a href="#contacts" class="block text-gray-700">Контакты</a>
-    <a href="https://t.me/viktoriascandles" target="_blank"
-       class="inline-block px-4 py-2 mt-2 rounded-full bg-rose-500 text-white shadow hover:bg-rose-400 transition">Telegram</a>
+    <a href="https://t.me/viktoriascandles?text=Здравствуйте!%20Хочу%20заказать%20свечи%20Viktoria%E2%80%99s%20candles.%20Подскажите,%20пожалуйста,%20по%20наличию%20и%20доставке."
+       target="_blank" rel="noopener"
+       class="inline-block px-4 py-2 mt-2 rounded-full bg-rose-500 text-white shadow hover:bg-rose-400 transition">
+      Telegram
+    </a>
   </div>
 </header>
 
-<!-- HERO -->
-<section id="hero" class="pt-28 pb-12 hero-fade">
-  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-    <div class="space-y-6">
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-rose-700">Тёплый свет, созданный с любовью</h1>
-      <p class="text-gray-600 max-w-xl">Viktoria’s candles — это нежные свечи ручной работы из натурального воска. Для уюта, для подарков, для особых мгновений.</p>
-      <div class="flex gap-3">
-        <a href="#catalog" class="px-5 py-3 rounded-md bg-rose-500 text-white shadow hover:bg-rose-400 transition">Смотреть каталог</a>
-        <a href="#contacts" class="px-5 py-3 rounded-md border border-rose-300 text-rose-600 hover:bg-rose-50 transition">Связаться</a>
+<main class="pt-24 md:pt-28">
+
+  <!-- HERO -->
+  <section id="hero" class="section-glass hero-fade">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="space-y-6">
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-rose-700">
+          Тёплый свет, созданный с любовью
+        </h1>
+        <p class="text-gray-600 max-w-xl">
+          Натуральные восковые свечи ручной работы в нежной палитре и деликатных ароматах.
+          Для дома, фотосессий, особых событий и душевных подарков.
+        </p>
+        <ul class="text-sm text-gray-500 space-y-1">
+          <li>• 100% натуральный воск</li>
+          <li>• Ручное литьё и бережная упаковка</li>
+          <li>• Индивидуальные наборы под ваш запрос</li>
+          <li>• Личная доставка и самовывоз по договорённости</li>
+        </ul>
+        <div class="flex gap-3 flex-wrap">
+          <a href="#catalog" class="px-5 py-3 rounded-md bg-rose-500 text-white shadow hover:bg-rose-400 transition">
+            Смотреть каталог
+          </a>
+          <a href="#contacts" class="px-5 py-3 rounded-md border border-rose-300 text-rose-600 hover:bg-rose-50 transition">
+            Заказать в Telegram
+          </a>
+        </div>
+      </div>
+      <img src="images/hero.png"
+           alt="Коллекция восковых свечей Viktoria’s candles"
+           class="rounded-2xl shadow-lg w-full aspect-[3/2] object-cover"
+           loading="lazy" />
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section id="catalog" class="section-glass mt-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-2 text-rose-700">Каталог свечей</h2>
+      <p class="text-sm text-gray-500 mb-1">
+        Ниже примерный ассортимент и ориентировочные цены.
+      </p>
+      <p class="text-xs text-gray-500 mb-4">
+        Доставку и самовывоз согласуем индивидуально при заказе.
+      </p>
+
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <div class="flex flex-wrap gap-2 text-xs md:text-sm" id="filterTags">
+          <button type="button" class="filter-chip active" data-filter="all">Все свечи</button>
+          <button type="button" class="filter-chip" data-filter="pillar">Столбики</button>
+          <button type="button" class="filter-chip" data-filter="figure">Фигурные</button>
+          <button type="button" class="filter-chip" data-filter="set">Подарочные наборы</button>
+          <button type="button" class="filter-chip" data-filter="wedding">Свадебные</button>
+          <button type="button" class="filter-chip" data-filter="aroma">Ароматические</button>
+        </div>
+
+        <div class="flex items-center gap-2 text-xs md:text-sm">
+          <label for="sortSelect" class="text-gray-500">Сортировка:</label>
+          <select id="sortSelect"
+                  class="px-3 py-2 rounded-xl border border-rose-100 bg-white/80 text-gray-700 text-xs md:text-sm">
+            <option value="popular">По популярности</option>
+            <option value="priceAsc">Цена: сначала ниже</option>
+            <option value="priceDesc">Цена: сначала выше</option>
+            <option value="new">Сначала новинки</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+           id="catalog-grid" aria-live="polite"></div>
+
+      <div class="text-center mt-8">
+        <button id="loadMore"
+                class="px-5 py-3 rounded-md bg-rose-400 text-white shadow hover:bg-rose-300 transition inline-flex items-center gap-2">
+          Показать ещё
+        </button>
       </div>
     </div>
-    <img src="images/hero.png" alt="Свечи Viktoria’s candles" class="rounded-2xl shadow-lg w-full aspect-[3/2] object-cover" />
-  </div>
-</section>
-
-<!-- CATALOG -->
-<section id="catalog" class="py-12 bg-white/70">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-2xl font-bold mb-6 text-rose-700">Каталог свечей</h2>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="catalog-grid"></div>
-
-    <div class="text-center mt-8">
-      <button id="loadMore" class="px-5 py-3 rounded-md bg-rose-400 text-white shadow hover:bg-rose-300 transition">Загрузить ещё</button>
-    </div>
-  </div>
-</section>
+  </section>
 
 <!-- ABOUT -->
-<section id="about" class="py-12">
+<section id="about" class="section-glass mt-10">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-2xl font-bold text-rose-700 mb-3">О нас</h2>
-    <p class="text-gray-600">Каждая свеча — это история тепла, спокойствия и нежности. Мы создаём их вручную, используя только натуральные ингредиенты и вдохновение.</p>
+    <h2 class="text-2xl font-bold text-rose-700 mb-3">О Viktoria’s candles</h2>
+    <p class="text-gray-600 mb-2">
+      Меня зовут Виктория, и эти свечи я делаю сама — от первой идеи до последней ленточки на упаковке.
+    </p>
+    <p class="text-gray-600">
+      Мне важно, чтобы каждая свеча была не просто красивой на фото, а радовала вживую: мягкий свет, аккуратная форма,
+      приятный аромат и ощущение заботы. Если вы сомневаетесь, я с радостью помогу выбрать.
+    </p>
   </div>
 </section>
 
-<!-- CONTACTS -->
-<section id="contacts" class="py-12 bg-white/60">
-  <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-2xl font-bold text-rose-700 mb-3">Контакты</h2>
-    <p class="text-gray-600 mb-6">Свяжитесь с нами для заказа или уточнения деталей.</p>
-    <a href="https://t.me/viktoriascandles" target="_blank"
-       class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-rose-500 text-white shadow hover:bg-rose-400 transition">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
-        <path d="M9.999 15.17l-.366 3.86c.524 0 .75-.225 1.022-.494l2.46-2.33 5.1 3.744c.935.514 1.598.244 1.832-.866l3.317-15.51c.302-1.405-.48-1.956-1.398-1.616L1.162 9.577c-1.36.53-1.34 1.289-.232 1.634л4.905 1.532 11.388-7.18c.54-.335 1.03-.15.625.214L9.999 15.17z"/>
-      </svg>
-      Написать в Telegram
-    </a>
-  </div>
-</section>
+  <!-- ADVANTAGES -->
+  <section id="advantages" class="section-glass mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid gap-6 md:grid-cols-3 text-sm">
+      <div class="p-4 rounded-2xl bg-white/90 shadow-sm">
+        <h3 class="font-semibold text-rose-600 mb-2">Натуральный состав</h3>
+        <p class="text-gray-600">Натуральный воск и деликатные ароматы. Без резких запахов и тяжёлых композиций.</p>
+      </div>
+      <div class="p-4 rounded-2xl bg-white/90 shadow-sm">
+        <h3 class="font-semibold text-rose-600 mb-2">Эстетика и упаковка</h3>
+        <p class="text-gray-600">Минималистичная упаковка, готовая к дарению. По желанию — открытка с вашим текстом.</p>
+      </div>
+      <div class="p-4 rounded-2xl bg-white/90 shadow-sm">
+        <h3 class="font-semibold text-rose-600 mb-2">Индивидуальный подход</h3>
+        <p class="text-gray-600">Подберу набор под ваш бюджет, стиль, событие и цветовую гамму. Можно прислать референсы.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO ORDER -->
+  <section id="howto" class="section-glass mt-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-rose-700 mb-4 text-center">Как заказать</h2>
+      <div class="grid gap-6 md:grid-cols-3 text-sm">
+        <div class="p-4 rounded-2xl bg-white/90 shadow-sm">
+          <div class="text-rose-500 font-semibold mb-1">Шаг 1</div>
+          <p class="text-gray-600">Посмотрите каталог или просто опишите, какую атмосферу и цвета вы хотите.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/90 shadow-sm">
+          <div class="text-rose-500 font-semibold mb-1">Шаг 2</div>
+          <p class="text-gray-600">Напишите в Telegram, можно с фото-примерами. Я помогу собрать подходящий набор.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/90 shadow-sm">
+          <div class="text-rose-500 font-semibold mb-1">Шаг 3</div>
+          <p class="text-gray-600">Согласуем итоговую стоимость и удобный способ получения: личная доставка или самовывоз.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="section-glass mt-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-rose-700 mb-4 text-center">Отзывы</h2>
+      <div class="grid gap-6 md:grid-cols-3 text-sm">
+        <article class="p-4 rounded-2xl bg-white/90 shadow-sm">
+          <p class="text-gray-600 mb-3">
+            «Заказывала набор в подарок — всё настолько аккуратно упаковано, что хотелось оставить себе. Аромат нежный, без "химии".»
+          </p>
+          <div class="text-gray-500 text-xs">— Анна</div>
+        </article>
+        <article class="p-4 rounded-2xl bg-white/90 shadow-sm">
+          <p class="text-gray-600 mb-3">
+            «Свечи для фотосессии приехали вовремя, цвет идеально совпал с референсом. Очень тактичное и внимательное общение.»
+          </p>
+          <div class="text-gray-500 text-xs">— Мария</div>
+        </article>
+        <article class="p-4 rounded-2xl bg-white/90 shadow-sm">
+          <p class="text-gray-600 mb-3">
+            «Уютные, аккуратные, видно, что сделаны с душой. Уже второй заказ — и снова идеально.»
+          </p>
+          <div class="text-gray-500 text-xs">— Екатерина</div>
+        </article>
+      </div>
+      <p class="mt-4 text-center text-gray-400 text-xs">
+        Больше отзывов и фото — по запросу в Telegram.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section-glass mt-10">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-rose-700 mb-4 text-center">FAQ — часто спрашивают</h2>
+      <div class="space-y-3 text-sm text-left">
+        <details class="faq-item">
+          <summary>Из чего сделаны свечи?</summary>
+          <p>Использую натуральный воск и мягкие ароматические композиции. Без агрессивных синтетических запахов.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Можно ли свой цвет или форму?</summary>
+          <p>Да, по возможности подбираю под ваши пожелания. Можно прислать фото или палитру — предложу варианты.</p>
+        </details>
+        <details class="faq-item">
+          <summary>За сколько дней лучше заказывать?</summary>
+          <p>Оптимально — за 5–7 дней. Для больших или свадебных заказов — чем раньше, тем лучше.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Свечи коптят или текут?</summary>
+          <p>При правильной установке, подходящем подсвечнике и без сквозняков горят ровно. В заказ вкладываю короткие рекомендации.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Можно срочно, к определённой дате?</summary>
+          <p>Иногда да. Напишите дату и желаемый формат — честно скажу, успею ли, и предложу готовые варианты при необходимости.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Как получить заказ?</summary>
+          <p>Личная доставка или самовывоз по договорённости в вашем районе. Все детали уточняем в Telegram перед подтверждением.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERY -->
+  <section id="delivery" class="section-glass mt-10">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold text-rose-700 mb-3">Доставка</h2>
+      <p class="text-gray-600 mb-2">
+        Сейчас я доставляю заказы лично — вместе выбираем удобное место и время.
+      </p>
+      <p class="text-gray-600 mb-2">
+        Базовый регион: посёлок [Ваш поселок] и ближайшие районы. Возможны выезды в соседние населённые пункты по договорённости.
+      </p>
+      <p class="text-gray-500 text-sm">
+        Стоимость и формат обсуждаем индивидуально в Telegram до подтверждения заказа. Также возможен самовывоз.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section id="contacts" class="section-glass mt-10">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold text-rose-700 mb-3">Контакты и заказ</h2>
+      <p class="text-gray-600 mb-3">
+        Напишите в Telegram — подберём свечи по фото, цвету, бюджету и обсудим удобный вариант получения.
+      </p>
+      <ul class="text-sm text-gray-500 mb-5 space-y-1">
+        <li>• Помогу, если вы «просто хотите что-то красивое».</li>
+        <li>• Подскажу сочетания для фотосессий, сервировки и декора.</li>
+        <li>• Согласуем личную доставку или самовывоз.</li>
+      </ul>
+      <a href="https://t.me/viktoriascandles?text=Здравствуйте!%20Хочу%20заказать%20свечи%20Viktoria%E2%80%99s%20candles.%20Помогите,%20пожалуйста,%20подобрать%20набор%20и%20обсудить%20доставку."
+         target="_blank" rel="noopener"
+         class="mt-2 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-rose-500 text-white shadow hover:bg-rose-400 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
+          <path fill="currentColor" d="M22.9 3.2a1.5 1.5 0 0 0-1.7-1.1L2.7 8.2A1.2 1.2 0 0 0 2.6 10л4.8 1.6 2 6.2a1.2 1.2 0 0 0 2 .4l3-3.2 4.8 3.5a1.2 1.2 0 0 0 1.9-.7л2-13.4a1.5 1.5 0 0 0-.2-.8z"/>
+        </svg>
+        Написать в Telegram
+      </a>
+    </div>
+  </section>
+
+</main>
 
 <footer class="py-8 text-center text-sm text-gray-500">
-  © <span id="year"></span> Viktoria’s candles
+  © <span id="year"></span> Viktoria’s candles — восковые свечи ручной работы
 </footer>
 
-<script src="script.js"></script>
+<!-- Плавающая кнопка Telegram -->
+<a href="https://t.me/viktoriascandles?text=Здравствуйте!%20Хочу%20заказать%20свечи%20Viktoria%E2%80%99s%20candles."
+   target="_blank"
+   rel="noopener"
+   class="fixed-cta"
+   aria-label="Написать в Telegram">
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       aria-hidden="true">
+    <path fill="currentColor"
+          d="M9.04 15.52 8.7 20.23c.5 0 .72-.22.98-.48l2.35-2.28 4.86 3.56c.89.49 1.54.23 1.76-.84l3.19-15c.28-1.34-.46-1.87-1.36-1.54L1.97 9.09C.64 9.6.66 10.3 1.76 10.64l4.77 1.49L18.1 5.19c.52-.32.99-.15.6.23Z" />
+  </svg>
+</a>
+
+<script src="script.js" defer></script>
 </body>
 </html>
