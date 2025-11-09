@@ -5,23 +5,74 @@ document.addEventListener('DOMContentLoaded', () => {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // --- Мобильное меню ---
+  // --- Мобильное меню с анимацией ---
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileMenu = document.getElementById('mobileMenu');
 
   if (mobileToggle && mobileMenu) {
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden');
-      mobileToggle.setAttribute('aria-expanded', String(!isOpen));
-    });
+    const OPEN_CLASS = 'menu-open';
+    const HIDDEN_CLASS = 'hidden';
 
-    mobileMenu.addEventListener('click', (event) => {
-      if (event.target.tagName === 'A') {
-        mobileMenu.classList.add('hidden');
-        mobileToggle.setAttribute('aria-expanded', 'false');
+    const isOpen = () => mobileMenu.classList.contains(OPEN_CLASS);
+
+    const openMenu = () => {
+      mobileMenu.classList.remove(HIDDEN_CLASS);
+      // ждём следующий кадр, чтобы transition отработал
+      requestAnimationFrame(() => {
+        mobileMenu.classList.add(OPEN_CLASS);
+      });
+      mobileToggle.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeMenu = () => {
+      if (!isOpen()) return;
+      mobileMenu.classList.remove(OPEN_CLASS);
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      // после анимации прячем элемент
+      setTimeout(() => {
+        if (!mobileMenu.classList.contains(OPEN_CLASS)) {
+          mobileMenu.classList.add(HIDDEN_CLASS);
+        }
+      }, 180);
+    };
+
+    // Открыть/закрыть по кнопке
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isOpen()) {
+        closeMenu();
+      } else {
+        openMenu();
       }
     });
+
+    // Закрыть при клике на ссылку в меню
+    mobileMenu.addEventListener('click', (event) => {
+      if (event.target.tagName === 'A') {
+        closeMenu();
+      }
+    });
+
+    // Закрыть при клике вне меню
+    document.addEventListener('click', (event) => {
+      if (!isOpen()) return;
+      const clickInsideMenu = mobileMenu.contains(event.target);
+      const clickOnToggle = mobileToggle.contains(event.target);
+      if (!clickInsideMenu && !clickOnToggle) {
+        closeMenu();
+      }
+    });
+
+    // Закрыть при скролле
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (isOpen()) {
+          closeMenu();
+        }
+      },
+      { passive: true }
+    );
   }
 
   // --- HERO анимация через IntersectionObserver ---
@@ -29,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hero) {
     const observer = new IntersectionObserver(
       (entries, obs) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             hero.classList.add('visible');
             obs.disconnect();
@@ -149,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // --- Элементы каталога ---
   const catalogGrid = document.getElementById('catalog-grid');
   const loadMoreBtn = document.getElementById('loadMore');
   const filterTags = document.getElementById('filterTags');
@@ -169,10 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (activeFilter === 'all') return products;
     if (activeFilter === 'aroma') {
       return products.filter(
-        p => p.category === 'aroma' || (p.aroma && p.aroma !== 'без аромата')
+        (p) => p.category === 'aroma' || (p.aroma && p.aroma !== 'без аромата')
       );
     }
-    return products.filter(p => p.category === activeFilter);
+    return products.filter((p) => p.category === activeFilter);
   }
 
   function applySort(products) {
@@ -225,15 +275,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     card.innerHTML = `
       <div class="mb-3 relative">
-        ${badges.length ? `<div class="absolute top-2 left-2 space-x-1">${badges.join('')}</div>` : ''}
+        ${
+          badges.length
+            ? `<div class="absolute top-2 left-2 space-x-1">${badges.join(
+                ''
+              )}</div>`
+            : ''
+        }
         <img src="${product.img}"
              alt="${product.name}"
              class="rounded-xl w-full aspect-[2/3] object-cover"
              loading="lazy"
              itemprop="image" />
       </div>
-      <h3 class="font-semibold text-rose-600 mb-1" itemprop="name">${product.name}</h3>
-      <p class="text-[11px] text-gray-500 mb-1" itemprop="description">${product.short}</p>
+      <h3 class="font-semibold text-rose-600 mb-1" itemprop="name">
+        ${product.name}
+      </h3>
+      <p class="text-[11px] text-gray-500 mb-1" itemprop="description">
+        ${product.short}
+      </p>
       <p class="text-[11px] text-gray-500">${aromaText}</p>
       <p class="text-[11px] text-gray-400 mb-2">
         Цвет: ${product.color} · Размер/объём: ${product.volume}
@@ -243,7 +303,9 @@ document.addEventListener('DOMContentLoaded', () => {
            itemscope
            itemtype="https://schema.org/Offer">
         <div class="text-rose-600 font-semibold text-base">
-          <span itemprop="price" content="${product.price}">от ${product.price} ₽</span>
+          <span itemprop="price" content="${product.price}">
+            от ${product.price} ₽
+          </span>
           <meta itemprop="priceCurrency" content="RUB" />
         </div>
         <a href="https://t.me/viktoriascandles?text=${orderText}"
@@ -300,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     activeFilter = value;
 
-    [...filterTags.querySelectorAll('.filter-chip')].forEach(b => {
+    [...filterTags.querySelectorAll('.filter-chip')].forEach((b) => {
       b.classList.toggle('active', b === btn);
     });
 
