@@ -1,50 +1,168 @@
+/* Базовый фон */
 body {
   background: linear-gradient(to bottom, #fdfcfc, #f3f1f2);
 }
 
-section {
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 1rem;
-  backdrop-filter: blur(5px);
+/* Плавный скролл */
+html {
+  scroll-behavior: smooth;
 }
 
+/* Общий стеклянный контейнер секций */
+.section-glass {
+  margin-inline: auto;
+  margin-top: 2.5rem;
+  padding: 2.5rem 0;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 1.25rem;
+  backdrop-filter: blur(8px);
+}
+
+/* Акцентный цвет заголовков */
 .text-rose-700 {
   color: #b26b77;
 }
 
+/* Базовая тень */
 .shadow {
-  box-shadow: 0 4px 10px rgba(150, 150, 150, 0.1);
+  box-shadow: 0 4px 12px rgba(150, 150, 150, 0.12);
 }
 
-/* --- Анимации --- */
+/* HERO анимация */
 .hero-fade {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 .hero-fade.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.fade-card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
-}
-.fade-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- Анимация мягкого появления карточек --- */
+/* Карточки продукта */
 .product-card {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(16px);
+  transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.2s ease;
 }
-
 .product-card.visible {
   opacity: 1;
   transform: translateY(0);
+}
+.product-card:hover {
+  box-shadow: 0 8px 18px rgba(150, 150, 150, 0.18);
+}
+
+/* Фильтры */
+.filter-chip {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 114, 182, 0.18);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filter-chip:hover {
+  background-color: #ffe5ee;
+}
+.filter-chip.active {
+  background-color: #f97386;
+  color: #ffffff;
+  border-color: #f97386;
+}
+
+/* Бейджи */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  margin-right: 0.25rem;
+}
+.badge-new {
+  background-color: #ecfccb;
+  color: #4d7c0f;
+}
+.badge-hit {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+/* FAQ */
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(248, 187, 208, 0.4);
+  color: #4b5563;
+  font-weight: 500;
+}
+.faq-item[open] summary {
+  background-color: #ffe5ee;
+}
+.faq-item p {
+  padding: 0.5rem 0.9rem 0.75rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Плавающая кнопка Telegram */
+.fixed-cta {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background-color: #f97386;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(248, 113, 150, 0.5);
+  text-decoration: none;
+  z-index: 40;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.fixed-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(248, 113, 150, 0.6);
+  background-color: #fb7185;
+}
+.fixed-cta svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: #ffffff;
+}
+@media (max-width: 640px) {
+  .fixed-cta {
+    width: 2.6rem;
+    height: 2.6rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+/* Фокус для доступности */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #f97386;
+  outline-offset: 2px;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-fade,
+  .product-card {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
