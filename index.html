@@ -138,23 +138,30 @@
          target="_blank" rel="noopener"
          class="px-4 py-2 rounded-full bg-rose-500 text-white shadow hover:bg-rose-400 transition flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" aria-hidden="true">
-          <path fill="currentColor" d="M22.9 3.2a1.5 1.5 0 0 0-1.7-1.1L2.7 8.2A1.2 1.2 0 0 0 2.6 10l4.8 1.6 2 6.2a1.2 1.2 0 0 0 2 .4l3-3.2 4.8 3.5a1.2 1.2 0 0 0 1.9-.7l2-13.4a1.5 1.5 0 0 0-.2-.8z"/>
+          <path fill="currentColor" d="M9.04 15.52 8.7 20.23c.5 0 .72-.22.98-.48l2.35-2.28 4.86 3.56c.89.49 1.54.23 1.76-.84l3.19-15c.28-1.34-.46-1.87-1.36-1.54L1.97 9.09c-1.33.51-1.31 1.21-.21 1.55l4.77 1.49 11.57-7.29c.55-.35 1.06-.16.68.22Z" />
         </svg>
         Telegram
       </a>
     </nav>
 
+    <!-- Мобильная кнопка меню в стиле сайта -->
     <button id="mobileToggle"
-            class="md:hidden p-2 rounded-md bg-white/80 shadow flex items-center gap-2"
+            class="md:hidden flex items-center gap-2 px-3 py-2 rounded-full bg-white/95 border border-rose-100 text-rose-500 shadow-sm text-sm"
             aria-label="Открыть меню"
             aria-expanded="false"
             aria-controls="mobileMenu">
-      <span class="text-sm">Меню</span>
+      <span class="menu-toggle-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span>Меню</span>
     </button>
   </div>
 
+  <!-- Мобильное меню -->
   <div id="mobileMenu"
-       class="hidden bg-white/95 shadow-md text-center py-4 space-y-3 md:hidden"
+       class="mobile-menu hidden bg-white/95 shadow-md text-center py-4 space-y-3 md:hidden"
        aria-label="Мобильное меню">
     <a href="#catalog" class="block text-gray-700">Каталог</a>
     <a href="#about" class="block text-gray-700">О нас</a>
@@ -191,11 +198,13 @@
           <li>• Индивидуальные наборы под ваш запрос</li>
           <li>• Личная доставка и самовывоз по договорённости</li>
         </ul>
-        <div class="flex gap-3 flex-wrap">
-          <a href="#catalog" class="px-5 py-3 rounded-md bg-rose-500 text-white shadow hover:bg-rose-400 transition">
+        <div class="hero-actions">
+          <a href="#catalog"
+             class="px-5 py-3 rounded-md bg-rose-500 text-white shadow hover:bg-rose-400 transition">
             Смотреть каталог
           </a>
-          <a href="#contacts" class="px-5 py-3 rounded-md border border-rose-300 text-rose-600 hover:bg-rose-50 transition">
+          <a href="#contacts"
+             class="px-5 py-3 rounded-md border border-rose-300 text-rose-600 hover:bg-rose-50 transition">
             Заказать в Telegram
           </a>
         </div>
@@ -252,19 +261,19 @@
     </div>
   </section>
 
-<!-- ABOUT -->
-<section id="about" class="section-glass mt-10">
-  <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-2xl font-bold text-rose-700 mb-3">О Viktoria’s candles</h2>
-    <p class="text-gray-600 mb-2">
-      Меня зовут Виктория, и эти свечи я делаю сама — от первой идеи до последней ленточки на упаковке.
-    </p>
-    <p class="text-gray-600">
-      Мне важно, чтобы каждая свеча была не просто красивой на фото, а радовала вживую: мягкий свет, аккуратная форма,
-      приятный аромат и ощущение заботы. Если вы сомневаетесь, я с радостью помогу выбрать.
-    </p>
-  </div>
-</section>
+  <!-- ABOUT -->
+  <section id="about" class="section-glass mt-10">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold text-rose-700 mb-3">О Viktoria’s candles</h2>
+      <p class="text-gray-600 mb-2">
+        Меня зовут Виктория, и все свечи здесь — ручная работа от идеи до последней ленточки на упаковке.
+      </p>
+      <p class="text-gray-600">
+        Хочется, чтобы свеча была не только красивой на фото, но и радовала вживую: мягкий свет, аккуратная форма,
+        приятный аромат и ощущение заботы. Если сомневаетесь с выбором — просто напишите, помогу.
+      </p>
+    </div>
+  </section>
 
   <!-- ADVANTAGES -->
   <section id="advantages" class="section-glass mt-10">
@@ -291,11 +300,11 @@
       <div class="grid gap-6 md:grid-cols-3 text-sm">
         <div class="p-4 rounded-2xl bg-white/90 shadow-sm">
           <div class="text-rose-500 font-semibold mb-1">Шаг 1</div>
-          <p class="text-gray-600">Посмотрите каталог или просто опишите, какую атмосферу и цвета вы хотите.</p>
+          <p class="text-gray-600">Посмотрите каталог или опишите, какую атмосферу и цвета вы хотите.</p>
         </div>
         <div class="p-4 rounded-2xl bg-white/90 shadow-sm">
           <div class="text-rose-500 font-semibold mb-1">Шаг 2</div>
-          <p class="text-gray-600">Напишите в Telegram, можно с фото-примерами. Я помогу собрать подходящий набор.</p>
+          <p class="text-gray-600">Напишите в Telegram, можно с фото-примерами. Помогу собрать подходящий набор.</p>
         </div>
         <div class="p-4 rounded-2xl bg-white/90 shadow-sm">
           <div class="text-rose-500 font-semibold mb-1">Шаг 3</div>
@@ -318,13 +327,13 @@
         </article>
         <article class="p-4 rounded-2xl bg-white/90 shadow-sm">
           <p class="text-gray-600 mb-3">
-            «Свечи для фотосессии приехали вовремя, цвет идеально совпал с референсом. Очень тактичное и внимательное общение.»
+            «Свечи для фотосессии приехали вовремя, цвет совпал с референсом. Очень бережное отношение к деталям.»
           </p>
           <div class="text-gray-500 text-xs">— Мария</div>
         </article>
         <article class="p-4 rounded-2xl bg-white/90 shadow-sm">
           <p class="text-gray-600 mb-3">
-            «Уютные, аккуратные, видно, что сделаны с душой. Уже второй заказ — и снова идеально.»
+            «Уютные, аккуратные, видно, что сделаны с душой. Второй заказ — снова идеально.»
           </p>
           <div class="text-gray-500 text-xs">— Екатерина</div>
         </article>
@@ -358,7 +367,7 @@
         </details>
         <details class="faq-item">
           <summary>Можно срочно, к определённой дате?</summary>
-          <p>Иногда да. Напишите дату и желаемый формат — честно скажу, успею ли, и предложу готовые варианты при необходимости.</p>
+          <p>Иногда да. Напишите дату и формат — честно скажу, успею ли, и предложу готовые варианты при необходимости.</p>
         </details>
         <details class="faq-item">
           <summary>Как получить заказ?</summary>
@@ -373,7 +382,7 @@
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h2 class="text-2xl font-bold text-rose-700 mb-3">Доставка</h2>
       <p class="text-gray-600 mb-2">
-        Сейчас я доставляю заказы лично — вместе выбираем удобное место и время.
+        Доставляю заказы лично — вместе выбираем удобное место и время.
       </p>
       <p class="text-gray-600 mb-2">
         Базовый регион: посёлок [Ваш поселок] и ближайшие районы. Возможны выезды в соседние населённые пункты по договорённости.
@@ -400,7 +409,7 @@
          target="_blank" rel="noopener"
          class="mt-2 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-rose-500 text-white shadow hover:bg-rose-400 transition">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
-          <path fill="currentColor" d="M22.9 3.2a1.5 1.5 0 0 0-1.7-1.1L2.7 8.2A1.2 1.2 0 0 0 2.6 10л4.8 1.6 2 6.2a1.2 1.2 0 0 0 2 .4l3-3.2 4.8 3.5a1.2 1.2 0 0 0 1.9-.7л2-13.4a1.5 1.5 0 0 0-.2-.8z"/>
+          <path fill="currentColor" d="M9.04 15.52 8.7 20.23c.5 0 .72-.22.98-.48л2.35-2.28 4.86 3.56c.89.49 1.54.23 1.76-.84л3.19-15c.28-1.34-.46-1.87-1.36-1.54L1.97 9.09c-1.33.51-1.31 1.21-.21 1.55л4.77 1.49 11.57-7.29c.55-.35 1.06-.16.68.22Z" />
         </svg>
         Написать в Telegram
       </a>
@@ -413,7 +422,7 @@
   © <span id="year"></span> Viktoria’s candles — восковые свечи ручной работы
 </footer>
 
-<!-- Плавающая кнопка Telegram -->
+<!-- Плавающая кнопка Telegram (как раньше, аккуратный круг) -->
 <a href="https://t.me/viktoriascandles?text=Здравствуйте!%20Хочу%20заказать%20свечи%20Viktoria%E2%80%99s%20candles."
    target="_blank"
    rel="noopener"
@@ -422,8 +431,7 @@
   <svg xmlns="http://www.w3.org/2000/svg"
        viewBox="0 0 24 24"
        aria-hidden="true">
-    <path fill="currentColor"
-          d="M9.04 15.52 8.7 20.23c.5 0 .72-.22.98-.48l2.35-2.28 4.86 3.56c.89.49 1.54.23 1.76-.84l3.19-15c.28-1.34-.46-1.87-1.36-1.54L1.97 9.09C.64 9.6.66 10.3 1.76 10.64l4.77 1.49L18.1 5.19c.52-.32.99-.15.6.23Z" />
+    <path fill="currentColor" d="M9.04 15.52 8.7 20.23c.5 0 .72-.22.98-.48l2.35-2.28 4.86 3.56c.89.49 1.54.23 1.76-.84l3.19-15c.28-1.34-.46-1.87-1.36-1.54L1.97 9.09c-1.33.51-1.31 1.21-.21 1.55l4.77 1.49 11.57-7.29c.55-.35 1.06-.16.68.22Z" />
   </svg>
 </a>
 
