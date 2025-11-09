@@ -1,259 +1,161 @@
-/* Базовый фон */
+/* BASE */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
 body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(to bottom, #fdfcfc, #f3f1f2);
+  color: #111827;
 }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+html { scroll-behavior: smooth; }
 
-/* Плавный скролл */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Общий стеклянный контейнер секций */
+/* SECTIONS */
 .section-glass {
-  margin-inline: auto;
-  margin-top: 2.5rem;
-  padding: 2.5rem 0;
-  background-color: rgba(255, 255, 255, 0.78);
+  margin-inline: auto; margin-top: 2.5rem; padding: 2.5rem 0;
+  background-color: rgba(255,255,255,.9);
   border-radius: 1.25rem;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(15,23,42,.03);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.section-soft {
+  background: linear-gradient(to bottom, rgba(255,240,244,.98), rgba(255,250,252,.98));
+}
+.soft-card {
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 4px 14px rgba(248,113,150,.06);
+  border: 1px solid rgba(248,187,208,.22);
 }
 
-/* Акцентный цвет заголовков */
-.text-rose-700 {
-  color: #b26b77;
-}
+/* COMMON */
+.text-rose-700 { color: #b26b77; }
+.shadow { box-shadow: 0 4px 12px rgba(150,150,150,.12); }
 
-/* Базовая тень */
-.shadow {
-  box-shadow: 0 4px 12px rgba(150, 150, 150, 0.12);
-}
-
-/* HERO анимация */
-.hero-fade {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-}
-.hero-fade.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Кнопки в hero */
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
+/* HERO */
+.hero-fade { opacity: 0; transform: translateY(20px); transition: opacity .9s ease, transform .9s ease; }
+.hero-fade.visible { opacity: 1; transform: translateY(0); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
 @media (max-width: 640px) {
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .hero-actions a {
-    width: 100%;
-    text-align: center;
-  }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions a { width: 100%; text-align: center; }
 }
 
-/* Мобильная кнопка "Меню" */
+/* === MOBILE MENU BUTTON (fixed) === */
 #mobileToggle {
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-#mobileToggle:hover {
-  background-color: #fff5f7;
-  box-shadow: 0 4px 10px rgba(248, 113, 150, 0.18);
-  border-color: #f9a8d4;
-}
-.menu-toggle-icon {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 3px;
-}
-.menu-toggle-icon span {
-  display: block;
-  width: 14px;
-  height: 2px;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color .2s ease, box-shadow .2s ease, border-color .2s ease, color .2s ease;
   border-radius: 999px;
-  background-color: #f97386;
 }
 
-/* Мобильное меню: анимация появления/исчезновения */
-.mobile-menu {
-  transform: translateY(-8px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.18s ease, transform 0.18s ease;
-}
-.mobile-menu.menu-open {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
+/* фокус не показываем сам по себе */
+#mobileToggle:focus { outline: none; }
 
-/* Карточки продукта */
-.product-card {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.2s ease;
-}
-.product-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.product-card:hover {
-  box-shadow: 0 8px 18px rgba(150, 150, 150, 0.18);
-}
-
-/* Фильтры */
-.filter-chip {
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid rgba(244, 114, 182, 0.18);
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #6b7280;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.filter-chip:hover {
-  background-color: #ffe5ee;
-}
-.filter-chip.active {
-  background-color: #f97386;
-  color: #ffffff;
-  border-color: #f97386;
-}
-
-/* Бейджи */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  font-size: 0.65rem;
-  font-weight: 500;
-  margin-right: 0.25rem;
-}
-.badge-new {
-  background-color: #ecfccb;
-  color: #4d7c0f;
-}
-.badge-hit {
-  background-color: #fee2e2;
-  color: #b91c1c;
-}
-
-/* FAQ */
-.faq-item {
-  border-radius: 0.75rem;
-  background-color: rgba(255, 255, 255, 0.98);
-  border: 1px solid rgba(248, 187, 208, 0.4);
-  overflow: hidden;
-}
-.faq-item summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 0.6rem 0.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #4b5563;
-  background-color: transparent;
-}
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-.faq-item summary::after {
-  content: "+";
-  font-size: 1rem;
-  color: #f97386;
-  flex-shrink: 0;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-.faq-item[open] summary {
-  background-color: #ffe5ee;
-}
-.faq-item[open] summary::after {
-  content: "−";
-  color: #e11d48;
-}
-.faq-item p {
-  padding: 0 0.9rem 0.75rem;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: #6b7280;
-}
-
-/* Плавающая кнопка Telegram (аккуратный круг) */
-.fixed-cta {
-  position: fixed;
-  right: 1.25rem;
-  bottom: 1.25rem;
-  width: 2.8rem;
-  height: 2.8rem;
-  border-radius: 999px;
-  background-color: #f97386;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px rgba(248, 113, 150, 0.5);
-  text-decoration: none;
-  z-index: 40;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-}
-.fixed-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(248, 113, 150, 0.6);
-  background-color: #fb7185;
-}
-.fixed-cta svg {
-  width: 1.4rem;
-  height: 1.4rem;
-  display: block;
-  fill: #ffffff;
-}
-
-/* Мобильная версия — чуть меньше */
-@media (max-width: 640px) {
-  .fixed-cta {
-    width: 2.4rem;
-    height: 2.4rem;
-    right: 0.9rem;
-    bottom: 0.9rem;
-    box-shadow: 0 8px 20px rgba(248, 113, 150, 0.45);
-  }
-
-  .fixed-cta svg {
-    width: 1.2rem;
-    height: 1.2rem;
-  }
-}
-
-/* Фокус для доступности */
-a:focus-visible,
-button:focus-visible {
+/* показывать контур только когда меню открыто и фокус клавиатурный */
+#mobileToggle[aria-expanded="true"]:focus-visible {
   outline: 2px solid #f97386;
   outline-offset: 2px;
 }
+#mobileToggle[aria-expanded="false"]:focus-visible {
+  outline: none;
+}
 
-/* Уважение к prefers-reduced-motion */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .hero-fade,
-  .product-card,
-  .mobile-menu {
-    transition: none;
-    opacity: 1;
-    transform: none;
+/* Состояние КОГДА МЕНЮ ОТКРЫТО — розовый фон/тень */
+#mobileToggle[aria-expanded="true"],
+#mobileToggle[aria-expanded="true"]:hover {
+  background-color: #ffe5ee;
+  border-color: #f9a8d4;
+  box-shadow: 0 4px 12px rgba(248,113,150,.35);
+  color: #e11d48;
+}
+
+/* Состояние КОГДА МЕНЮ ЗАКРЫТО — нейтральное; лёгкий hover */
+#mobileToggle[aria-expanded="false"] {
+  background-color: #ffffff;
+  border-color: #f3e1ea;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  color: #f97386;
+}
+
+/* hover применяем только на устройствах, где он реально есть */
+@media (hover: hover) {
+  #mobileToggle[aria-expanded="false"]:hover {
+    background-color: #ffffff;
+    border-color: #f3e1ea;
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+    color: #f97386;
   }
 }
 
-/* принудительно белый самолётик */
-.fixed-cta svg path {
-  fill: #ffffff;
+/* техкласс для жёсткого снятия фокуса */
+#mobileToggle.no-focus:focus,
+#mobileToggle.no-focus:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* иконка-гамбургер внутри */
+.menu-toggle-icon { display: inline-flex; flex-direction: column; gap: 3px; }
+.menu-toggle-icon span {
+  display: block; width: 14px; height: 2px; border-radius: 999px; background-color: currentColor;
+}
+
+/* MOBILE MENU */
+.mobile-menu { transform: translateY(-6px); opacity: 0; pointer-events: none; transition: opacity .18s ease, transform .18s ease; }
+.mobile-menu.menu-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+
+/* CATALOG */
+.product-card { opacity: 0; transform: translateY(16px); transition: opacity .45s ease, transform .45s ease, box-shadow .2s ease; }
+.product-card.visible { opacity: 1; transform: translateY(0); }
+.product-card:hover { box-shadow: 0 8px 18px rgba(150,150,150,.18); }
+
+.filter-chip {
+  padding: .4rem .9rem; border-radius: 999px;
+  border: 1px solid rgba(244,114,182,.18); background-color: rgba(255,255,255,.96);
+  color: #6b7280; cursor: pointer; transition: all .2s ease; -webkit-tap-highlight-color: transparent;
+}
+.filter-chip:hover { background-color: #ffe5ee; }
+.filter-chip.active { background-color: #f97386; color: #fff; border-color: #f97386; }
+
+.badge { display: inline-flex; align-items: center; padding: .15rem .5rem; border-radius: 999px; font-size: .65rem; font-weight: 500; margin-right: .25rem; }
+.badge-new { background-color: #ecfccb; color: #4d7c0f; }
+.badge-hit { background-color: #fee2e2; color: #b91c1c; }
+
+/* FAQ */
+.faq-item { border-radius: .75rem; background-color: #fff; border: 1px solid rgba(248,187,208,.5); overflow: hidden; }
+.faq-item summary { list-style: none; cursor: pointer; padding: .6rem .9rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; font-size: .9rem; font-weight: 500; color: #4b5563; background-color: transparent; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-size: 1rem; color: #f97386; flex-shrink: 0; transition: transform .2s ease, color .2s ease; }
+.faq-item[open] summary { background-color: #ffe5ee; }
+.faq-item[open] summary::after { content: "−"; color: #e11d48; }
+.faq-item p { padding: 0 .9rem .75rem; font-size: .85rem; line-height: 1.5; color: #6b7280; }
+
+/* FLOATING TELEGRAM BUTTON */
+.fixed-cta {
+  position: fixed; right: 1.25rem; bottom: 1.25rem;
+  width: 2.8rem; height: 2.8rem; border-radius: 999px;
+  background-color: #f97386; color: #ffffff; /* currentColor для svg */
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 25px rgba(248,113,150,.5);
+  text-decoration: none; z-index: 40; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.fixed-cta svg { width: 1.4rem; height: 1.4rem; display: block; }
+.fixed-cta svg path { fill: currentColor; }
+.fixed-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(248,113,150,.65); background-color: #fb7185; }
+
+@media (max-width: 640px) {
+  .fixed-cta { width: 2.4rem; height: 2.4rem; right: .9rem; bottom: .9rem; box-shadow: 0 8px 20px rgba(248,113,150,.5); }
+  .fixed-cta svg { width: 1.2rem; height: 1.2rem; }
+}
+
+/* ACCESSIBILITY (для остальных элементов) */
+a:focus-visible, button:focus-visible { outline: 2px solid #f97386; outline-offset: 2px; }
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-fade, .product-card, .mobile-menu { transition: none; opacity: 1; transform: none; }
 }
